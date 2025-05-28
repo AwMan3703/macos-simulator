@@ -1,0 +1,256 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title macOS Simulator
+        link(rel='icon', href='img/favicon.ico')
+        link(rel='stylesheet', href='css/index.css')
+    body
+        #menu-bar.stack-top.wide-container
+            #menu-bar-options.tight-container
+                button#menu-bar-home.menu-bar-item
+                    | 
+                    .dropdown-menu
+                        div about this mac
+                        hr
+                        div
+                            | system settings
+                            .dropdown-menu
+                                div screens
+                                div do not disturb
+                                div login and users
+                                div
+                                    | other settings
+                                    .dropdown-menu
+                                        div apps
+                                        div login items
+                        div app store...
+                        hr
+                        div
+                            | recent items
+                            .dropdown-menu
+                                div testing.png
+                                div lorem.app
+                                div placeholder
+                                div mydomain.com
+                        hr
+                        div(data-shortcut='⌥⌘⎋') force quit...
+                        hr
+                        div sleep
+                        div restart...
+                        div shut down...
+                        hr
+                        div(data-shortcut='^⌘Q') lock screen
+                        .disabled(data-shortcut='⇧⌘Q') log out guest...
+                button#menu-bar-apphome.menu-bar-item
+                    | finder
+                    .dropdown-menu
+                        div about finder
+                        hr
+                        div(data-shortcut='⌘,') settings...
+                        hr
+                        div(data-shortcut='⇧⌘⌫') empty trash...
+                        hr
+                        div
+                            | services
+                            .dropdown-menu
+                                div monitor
+                                div console
+                                div open logs
+                                div record
+                        hr
+                        div(data-shortcut='⌘H') hide finder
+                        div(data-shortcut='⌥⌘H') hide others
+                        .disabled show all
+                button.menu-bar-item
+                    | file
+                    .dropdown-menu
+                        div(data-shortcut='⌘N' onclick='spawnWindow(null, null, null, null, "windows/finder.html")') new finder window
+                        div(data-shortcut='⇧⌘N') new folder
+                        .disabled(data-shortcut='^⌘N') new folder with selection
+                        div new smart folder
+                        div(data-shortcut='⌘T') new tab
+                        .disabled(data-shortcut='⌘O') open
+                        .disabled
+                            | open with
+                            .dropdown-menu
+                                div myapp
+                                div anotherapp
+                        .disabled(data-shortcut='⌘W') close window
+                        hr
+                        div(data-shortcut='⌘I') get info
+                        .disabled rename
+                        .disabled compress
+                        .disabled(data-shortcut='⌘D') duplicate
+                        .disabled(data-shortcut='^⌘A') make alias
+                        .disabled(data-shortcut='⌘Y') quick look
+                        .disabled(data-shortcut='⌘P') print
+                        hr
+                        .disabled share...
+                        hr
+                        .disabled(data-shortcut='⌘R') show original
+                        .disabled(data-shortcut='^⇧⌘T') add to dock
+                        hr
+                        .disabled(data-shortcut='⌘⌫') move to trash
+                        .disabled(data-shortcut='⌘E') eject
+                        hr
+                        .disabled tags...
+                        hr
+                        div(data-shortcut='⌘F') find
+                button.menu-bar-item
+                    | edit
+                    .dropdown-menu
+                        .disabled(data-shortcut='⌘Z') undo
+                        .disabled(data-shortcut='⇧⌘Z') redo
+                        hr
+                        .disabled(data-shortcut='⌘X') cut
+                        .disabled(data-shortcut='⌘C') copy
+                        .disabled(data-shortcut='⌘V') paste
+                        div(data-shortcut='⌘A') select all
+                        hr
+                        div show clipboard
+                        hr
+                        div(data-shortcut='🎙️') start dictation
+                        div(data-shortcut='🌐') emoji &amp; symbols
+                button.menu-bar-item
+                    | view
+                    .dropdown-menu
+                        .disabled(data-shortcut='⌘1') as icons
+                        .disabled(data-shortcut='⌘2') as list
+                        .disabled(data-shortcut='⌘3') as columns
+                        .disabled(data-shortcut='⌘4') as gallery
+                        hr
+                        div(data-shortcut='^⌘O') use stacks
+                        div
+                            | sort by
+                            .dropdown-menu
+                                div name
+                                div kind
+                                div date
+                                div size
+                                div tags
+                        div clean up
+                        div
+                            | clean up by
+                            .dropdown-menu
+                                div name
+                                div kind
+                                div date
+                                div size
+                                div tags
+                        hr
+                        .disabled(data-shortcut='^⌘S') hide sidebar
+                        .disabled(data-shortcut='⇧⌘P') hide preview
+                        hr
+                        .disabled(data-shortcut='⌥⌘T') hide toolbar
+                        .disabled(data-shortcut='⇧⌘ù') show all tabs
+                        .disabled(data-shortcut='⇧⌘T') hide tab bar
+                        .disabled(data-shortcut='⌥⌘P') hide path bar
+                        .disabled(data-shortcut="⌘'") hide status bar
+                        hr
+                        .disabled customize toolbar...
+                        hr
+                        div(data-shortcut='⌘J') show view menu_bar_options
+                        .disabled show preview menu_bar_options
+                        hr
+                        .disabled(data-shortcut='🌐F') enter full screen
+                button.menu-bar-item
+                    | go
+                    .dropdown-menu
+                        .disabled(data-shortcut='⌘ò') back
+                        .disabled(data-shortcut='⌘à') forward
+                        div(data-shortcut='⇧⌘▲') enclosing folder
+                        hr
+                        div(data-shortcut='⇧⌘F') recents
+                        div(data-shortcut='⇧⌘O') documents
+                        div(data-shortcut='⇧⌘D') desktop
+                        div(data-shortcut='⌥⌘L') downloads
+                        div(data-shortcut='⇧⌘H') home
+                        div(data-shortcut='⇧⌘L') library
+                        div(data-shortcut='⇧⌘C') computer
+                        div(data-shortcut='⇧⌘R') airDrop
+                        div(data-shortcut='⇧⌘K') network
+                        div(data-shortcut='⇧⌘I') iCloud drive
+                        div(data-shortcut='⇧⌘S') shared
+                        div(data-shortcut='⇧⌘A') applications
+                        div(data-shortcut='⇧⌘U') utilities
+                        hr
+                        div
+                            | recent folders
+                            .dropdown-menu
+                                div desktop
+                                div downloads
+                                div myfiles
+                        hr
+                        div(data-shortcut='⇧⌘G') go to folder...
+                        div(data-shortcut='⌘K') connect to server...
+                button.menu-bar-item
+                    | window
+                    .dropdown-menu
+                        .disabled(data-shortcut='⌘M') minimize
+                        .disabled zoom
+                        .disabled move window to left side of screen
+                        .disabled move window to right side of screen
+                        .disabled replace tiled window
+                        hr
+                        .disabled remove window from set
+                        div(data-shortcut='⌘<') cycle through windows
+                        .disabled show progress window
+                        hr
+                        .disabled(data-shortcut='^⇧⇥') show previous tab
+                        .disabled(data-shortcut='^⇥') show next tab
+                        .disabled move tab to new window
+                        .disabled merge all windows
+                        hr
+                        div bring all to front
+                button.menu-bar-item
+                    | help
+                    .dropdown-menu
+                        input#menubar-help-searchbar(type='text', name='help-searchbar', placeholder='Search')
+                        div tips for your mac
+                        div(data-shortcut='⌘?') macos help
+            #menu-bar-widgets.tight-container
+                button.menu-bar-item ⛭
+                button.menu-bar-item.real-time-battery [battery script failure]
+                button#menu-bar-clock.menu-bar-item.real-time-clock [clock script failure]
+        #desktop
+            p#stdout(style='color: whitesmoke;')
+        #dock-wrapper
+            #dock.stack-top.material.border-radius.tight-container
+                .appicon-wrapper
+                    button#appicon-finder.load-icon.open(onclick="spawnWindow(150, 70, 700, 300, 'windows/finder.html');", data-icon='app-finder.png')
+                .appicon-wrapper
+                    button#appicon-launcher.load-icon(data-icon='app-launchpad.png')
+                .appicon-wrapper
+                    button.load-icon(data-icon='')
+                .appicon-wrapper
+                    button.load-icon.open(data-icon='')
+                .appicon-wrapper
+                    button.load-icon.open(data-icon='')
+                .appicon-wrapper
+                    button.load-icon(data-icon='')
+                .appicon-wrapper
+                    button.load-icon.open(data-icon='')
+                .appicon-wrapper
+                    button.load-icon(data-icon='')
+                hr.vertical
+                .appicon-wrapper
+                    button#appicon-trash.load-icon(data-icon='app-trash.png')
+
+
+        template#window-template
+            div.window
+                div.window-bar
+                    button.round.window-button.close
+                    button.round.window-button.minimize
+                    button.round.window-button.fullscreen
+
+                iframe.window-content
+
+        script(src='js/iconsLoader.js')
+        script(src='js/realTimeBattery.js')
+        script(src='js/realTimeClock.js')
+        script(src="js/dropdownMenus.js")
+        script(src='js/dockZoomEffect.js')
+        script(src='js/windowManager.js')

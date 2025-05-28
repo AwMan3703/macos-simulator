@@ -1,0 +1,254 @@
+
+@import "common";
+@import "utility";
+@import "devtools";
+
+@root-path: "..";
+
+:root {
+    --dock-height: 90px;
+}
+
+body {
+    height: 100lvh;
+    width: 100lvw;
+    margin: 0;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+
+    background-color: black;
+    background-image: url('../img/desktop/background/2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.dropdown-menu {
+    display: none;
+}
+.dropdown-open > .dropdown-menu {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    position: absolute;
+
+    &:extend(.material);
+
+    color: var(--material-color-text-black);
+    font-weight: normal;
+    text-transform: capitalize;
+
+    background: var(--material-color-background);
+    border-radius: var(--material-border-radius4);
+    margin-block-start: 4px;
+    margin-inline-start: -15px !important;
+    padding: 3.5px;
+    padding-inline-end: 24px;
+}
+.dropdown-menu > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: var(--material-border-radius4);
+    padding-block: 4px;
+    padding-inline: 10px;
+}
+.dropdown-menu hr {
+    pointer-events: none;
+    translate: 12px;
+}
+.dropdown-menu input[type="text"] {
+    width: 100%;
+    border: none;
+    padding-inline: 10px;
+    background-color: var(--material-color-background-layer);
+    border-radius: var(--material-border-radius4);
+}
+.dropdown-menu input[type="text"]::placeholder {
+    color: var(--material-color-text-black);
+    opacity: 20%;
+}
+.dropdown-menu > div:not(.disabled):hover {
+    color: var(--material-color-text-white);
+    background-color: var(--color-accent);
+}
+.dropdown-menu div::after {
+    pointer-events: none;
+    content: attr(data-shortcut);
+}
+.dropdown-menu div.disabled,
+.dropdown-menu div:not(.disabled):after {
+    pointer-events: none;
+    opacity: 50%;
+}
+.dropdown-menu > div:has(.dropdown-menu):not(.disabled)::after {
+    content: "⟩";
+    opacity: 100% !important;
+}
+
+
+
+
+
+
+
+#menu-bar {
+    grid-row: 1;
+
+    color: var(--material-color-text-white);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px);
+
+    user-select: none;
+}
+#menu-bar .menu-bar-item {
+    color: inherit;
+
+    text-transform: capitalize;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+
+    padding-block: 2px;
+    padding-inline: 15px;
+    margin-inline: -3px;
+}
+#menu-bar-options :first-child {
+    margin-inline-start: 0;
+}
+#menu-bar-widgets :last-child {
+    margin-inline-end: 0;
+}
+#menu-bar .menu-bar-item:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#menu-bar-home,
+#menu-bar-apphome {
+    font-weight: bold;
+}
+#menu-bar-clock {
+    opacity: 90%;
+}
+
+
+
+
+
+
+
+#desktop {
+    grid-row: 2;
+}
+.window {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    background-color: transparent;
+    border-radius: var(--material-border-radius3);
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 50%);
+    overflow: hidden;
+    transition: top 0s, left 0s, opacity .05s;
+    user-select: none;
+}
+.window .window-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: 20px;
+    padding-inline: 8px;
+    background-color: white;
+    background-image: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.3) 99%);
+}
+.window iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+.window-button {
+    background-size: 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.window-button.close { background-color: red }
+.window-button.minimize { background-color: #ffc800 }
+.window-button.fullscreen { background-color: #00b000 }
+.window-button.close:hover {
+    background-image: url('@{root-path}/img/icons/ui/x.png');
+}
+.window-button.close:active {
+    filter: brightness(50%);
+}
+
+
+
+
+
+
+#dock-wrapper {
+    width: 100dvw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 0px;
+    padding-block-start: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.0, 0.0, 0.53, 1.0);
+}
+#dock-wrapper:hover {
+    height: var(--dock-height);
+    padding-block-start: 0px;
+    overflow: visible;
+}
+#dock {
+    width: fit-content;
+    min-width: 10%;
+    max-height: min-content;
+    height: fit-content;
+
+    padding-block: 8.5px;
+    padding-inline: 5px;
+    margin-top: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+
+    background-color: rgba(255, 255, 255, 0.35);
+}
+#dock button {
+    min-height: calc(var(--dock-height) - 40px);
+    margin-block-end: 10px;
+    margin-inline: 5px;
+    aspect-ratio: 1;
+    background-color: transparent;
+    background-image: url('@{root-path}/img/icons/app-default.jpg');
+    background-size: 101%;
+    background-position: center;
+    border: none;
+    border-radius: 27%;
+    transform-origin: 50% 100%;
+}
+#dock button:active {
+    filter: brightness(70%);
+    opacity: 75%;
+}
+#dock .appicon-wrapper:has(button.open)::after {
+    content: "";
+    display: block;
+    margin: auto;
+    margin-bottom: -5px; /* Must be equal to height */
+    height: 5px;
+    aspect-ratio: 1;
+    background-color: var(--material-color-text-black);
+    border-radius: 50%;
+}
+

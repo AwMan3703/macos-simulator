@@ -1,0 +1,54 @@
+
+:root {
+	--color-accent: rgb(0, 153, 255);
+
+	--material-color-background: rgba(255, 255, 255, 0.6);
+	--material-color-background-secondary: rgba(110, 110, 110, 0.6);
+	--material-color-background-layer: rgba(110, 110, 110, 0.2);
+
+	--material-color-text-white: rgba(255, 255, 255, 0.9);
+	--material-color-text-black: rgb(47, 47, 47, 0.9);
+
+	--material-color-separator: rgba(0, 0, 0, .5);
+
+	--material-color-border: rgba(0, 0, 0, .15);
+	--material-border: 1px var(--material-color-border) solid;
+	--material-border-radius1: 20px;
+	--material-border-radius2: 15px;
+	--material-border-radius3: 10px;
+	--material-border-radius4: 5px;
+
+	--material-box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.3);
+
+	--material-transition-default: all .07s ease-out;
+}
+:root.darkmode {}
+
+.material {
+	background-color: var(--material-color-background);
+	-webkit-backdrop-filter: blur(30px);
+	backdrop-filter: blur(30px);
+	box-shadow:
+			0 .3px 0 0px var(--material-color-background) inset,
+			0 0 0 .7px var(--material-color-border);
+}
+
+* {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	transition: var(--material-transition-default);
+}
+
+hr {
+	width: 100%;
+	height: 0;
+	border: none;
+	border-block-end: 1px var(--material-color-border) solid;
+	margin-block: 5px;
+}
+hr.vertical {
+	height: 100%;
+	width: 0;
+	border: none;
+	border-inline-end: 1px var(--material-color-border) solid;
+	margin-inline: 5px;
+}
