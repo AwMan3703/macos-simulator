@@ -9,6 +9,7 @@ const get_dropdown_contents = (dropdown_container) => {
 }
 
 dropdown_containers.forEach(dropdown_container => {
+	/// FIXME: whatever is wrong with this
 	const rect = dropdown_container.getBoundingClientRect()
 	console.log(rect.width || 0, rect.left || 0, (rect.width || 0) + (rect.left || 0))
 	get_dropdown_contents(dropdown_container)[0].style.left = `${(rect.width || 0) + (rect.left || 0)}px`
