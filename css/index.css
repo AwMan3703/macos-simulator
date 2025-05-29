@@ -1,6 +1,6 @@
 :root {
   --color-accent: #0099ff;
-  --material-color-background: rgba(255, 255, 255, 0.6);
+  --material-color-background: rgba(255, 255, 255, 0.75);
   --material-color-background-secondary: rgba(110, 110, 110, 0.6);
   --material-color-background-layer: rgba(110, 110, 110, 0.2);
   --material-color-text-white: rgba(255, 255, 255, 0.9);
@@ -108,10 +108,15 @@ body {
   text-transform: capitalize;
   background: var(--material-color-background);
   border-radius: var(--material-border-radius4);
+  left: auto;
+  min-width: max-content;
   margin-block-start: 4px;
-  margin-inline-start: -15px !important;
   padding: 3.5px;
   padding-inline-end: 24px;
+}
+.dropdown-menu .dropdown-menu {
+  left: 97%;
+  margin-top: -6px;
 }
 .dropdown-menu > div {
   width: 100%;

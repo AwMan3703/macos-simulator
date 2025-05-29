@@ -14,17 +14,7 @@ html(lang='en')
                     .dropdown-menu
                         div about this mac
                         hr
-                        div
-                            | system settings
-                            .dropdown-menu
-                                div screens
-                                div do not disturb
-                                div login and users
-                                div
-                                    | other settings
-                                    .dropdown-menu
-                                        div apps
-                                        div login items
+                        div system settings...
                         div app store...
                         hr
                         div
@@ -34,6 +24,12 @@ html(lang='en')
                                 div lorem.app
                                 div placeholder
                                 div mydomain.com
+                                div
+                                    | options
+                                    .dropdown-menu
+                                        div show files only
+                                        div show apps & websites only
+                                        div all recent items...
                         hr
                         div(data-shortcut='⌥⌘⎋') force quit...
                         hr
@@ -151,8 +147,8 @@ html(lang='en')
                         hr
                         .disabled customize toolbar...
                         hr
-                        div(data-shortcut='⌘J') show view menu_bar_options
-                        .disabled show preview menu_bar_options
+                        div(data-shortcut='⌘J') show view options
+                        .disabled show preview options
                         hr
                         .disabled(data-shortcut='🌐F') enter full screen
                 button.menu-bar-item
@@ -160,7 +156,7 @@ html(lang='en')
                     .dropdown-menu
                         .disabled(data-shortcut='⌘ò') back
                         .disabled(data-shortcut='⌘à') forward
-                        div(data-shortcut='⇧⌘▲') enclosing folder
+                        div(data-shortcut='⌘▲') enclosing folder
                         hr
                         div(data-shortcut='⇧⌘F') recents
                         div(data-shortcut='⇧⌘O') documents

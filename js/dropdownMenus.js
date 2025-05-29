@@ -1,26 +1,22 @@
 const dropdown_controller_class = 'dropdown-open'
 const dropdown_containers = document.querySelectorAll('*:has(> .dropdown-menu)')
 
-const get_dropdown_contents = (dropdown_container) => {
+function getDropdownContents(dropdown_container) {
 	const dropdown_menu = dropdown_container.querySelector('.dropdown-menu')
-	if (!dropdown_menu) { return null }
+	if (!dropdown_menu) { return [ null, null ] }
 	const dropdown_items = dropdown_menu.children
 	return [ dropdown_menu, dropdown_items ]
 }
 
 dropdown_containers.forEach(dropdown_container => {
-	/// FIXME: whatever is wrong with this
-	const rect = dropdown_container.getBoundingClientRect()
-	console.log(rect.width || 0, rect.left || 0, (rect.width || 0) + (rect.left || 0))
-	get_dropdown_contents(dropdown_container)[0].style.left = `${(rect.width || 0) + (rect.left || 0)}px`
-})
+	const [ menu, items ] = getDropdownContents(dropdown_container)
+	const zIndex = parseInt(window.getComputedStyle(dropdown_container).zIndex) || 0
+	menu.style.zIndex = `${zIndex + 1}`
 
-dropdown_containers.forEach(dropdown_container => {
 	dropdown_container.addEventListener('mouseenter', _ => {
 		dropdown_container.classList.add(dropdown_controller_class)
 	})
 	dropdown_container.addEventListener('mouseleave', _ => {
-		const [ menu, items ] = get_dropdown_contents(dropdown_container)
 		if (!menu.querySelector(`.${dropdown_controller_class}`)) { // If there are no open dropdowns
 			dropdown_container.classList.remove(dropdown_controller_class)
 		}
