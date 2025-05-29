@@ -1,45 +1,55 @@
-
-const max = Math.max;
-const min = Math.min;
-
-const minScale = document.getElementById("appicon-finder").offsetHeight;//.slice(0, -2);
+const minScale = document.getElementById("appicon-finder").offsetHeight;
 const maxScale = 400;
+const dock = document.getElementById("dock");
+const appicons = Array.from(document.querySelectorAll("#dock button"));
 
-let dockRect, inx, iny;
+let animationFrameId = null;
+let mouseX = 0, mouseY = 0;
 
-function updateDockZoom(mx, my) {
-    dockRect = document.getElementById('dock').getBoundingClientRect();
-    inx = dockRect.x < mx && mx < dockRect.x + dockRect.width;
-    iny = dockRect.y < my && my < dockRect.y + dockRect.height;
+// Cache icon centers
+const iconCenters = appicons.map(icon => {
+    const rect = icon.getBoundingClientRect();
+    return {
+        element: icon,
+        cx: rect.left + rect.width / 2,
+        cy: rect.top + rect.height / 2
+    };
+});
 
-    const appicons = document.querySelectorAll('#dock button');
-    let rect, ax, ay, dx, dy, scale; // element rect, iconx, icony, deltax, deltay, distance, scale
+function updateDockZoom() {
+    const dockRect = dock.getBoundingClientRect();
+    const insideDock =
+        mouseX >= dockRect.left &&
+        mouseX <= dockRect.right &&
+        mouseY >= dockRect.top &&
+        mouseY <= dockRect.bottom;
 
-    for (let i = 0; i < appicons.length; i++) {
-        const a = appicons[i];
-
-        if (!(inx && iny)) {
-            a.style.height = minScale + 'px';
-            a.style.marginTop = '0px';
+    for (const { element, cx, cy } of iconCenters) {
+        if (!insideDock) {
+            element.style.height = `${minScale}px`;
+            element.style.marginTop = `0px`;
             continue;
         }
 
-        rect = a.getBoundingClientRect();
-        ax = rect.x;
-        ay = rect.y;
+        const dx = mouseX - cx;
+        const dy = mouseY - cy;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-        scale = Math.sqrt(ax - mx, ay - my);
+        let scale = maxScale - distance;
+        scale = Math.max(scale / 4, minScale);
 
-        dx = mx - ax,
-        dy = my - ay;
-
-        scale = maxScale - Math.sqrt(dx * dx + dy * dy);
-        scale /= 4;
-        a.style.height = max(scale, minScale) + 'px';
-        a.style.marginTop = (0-max(scale, minScale)) + minScale + 'px';
+        element.style.height = `${scale}px`;
+        element.style.marginTop = `${minScale - scale}px`;
     }
+
+    animationFrameId = null;
 }
 
-document.addEventListener('mousemove', (e) => {
-    updateDockZoom(e.pageX, e.pageY);
+document.addEventListener("mousemove", (e) => {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+
+    if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(updateDockZoom);
+    }
 });

@@ -70,14 +70,18 @@ button.round {
   display: flex;
   flex-direction: row;
 }
-#stdout {
+#stdout::before {
+  content: "<stdout>";
   color: aquamarine;
+}
+#stdout {
+  color: whitesmoke;
   font-family: 'Courier New', Courier, monospace;
   opacity: 75%;
 }
-#stdout::before {
-  content: "stdout> ";
-  color: aquamarine;
+#stdout > p::before {
+  content: attr(data-timestamp) ' ';
+  opacity: 0.5;
 }
 :root {
   --dock-height: 90px;
@@ -248,7 +252,6 @@ body {
   height: 0px;
   padding-block-start: 10px;
   overflow: hidden;
-  transition: height 0.2s cubic-bezier(0, 0, 0.53, 1);
 }
 #dock-wrapper:hover {
   height: var(--dock-height);

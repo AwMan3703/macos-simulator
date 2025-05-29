@@ -211,7 +211,7 @@ html(lang='en')
                 button.menu-bar-item.real-time-battery [battery script failure]
                 button#menu-bar-clock.menu-bar-item.real-time-clock [clock script failure]
         #desktop
-            p#stdout(style='color: whitesmoke;')
+            div#stdout
         #dock-wrapper
             #dock.stack-top.material.border-radius.tight-container
                 .appicon-wrapper
@@ -244,6 +244,7 @@ html(lang='en')
 
                 iframe.window-content
 
+        script(src='js/devtools.js')
         script(src='js/iconsLoader.js')
         script(src='js/realTimeBattery.js')
         script(src='js/realTimeClock.js')

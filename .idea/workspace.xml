@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12b133ef-74cb-4600-bcf2-7992ebdb1640" name="Changes" comment="dev">
+      <change afterPath="$PROJECT_DIR$/js/devtools.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/common.less" beforeDir="false" afterPath="$PROJECT_DIR$/css/common.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/devtools.less" beforeDir="false" afterPath="$PROJECT_DIR$/css/devtools.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.jade" beforeDir="false" afterPath="$PROJECT_DIR$/index.jade" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dropdownMenus.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dropdownMenus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dockZoomEffect.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dockZoomEffect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/iconsLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/iconsLoader.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +102,7 @@
       <workItem from="1748428486223" duration="7000" />
       <workItem from="1748428689799" duration="12851000" />
       <workItem from="1748514179901" duration="5246000" />
-      <workItem from="1748524588193" duration="5260000" />
+      <workItem from="1748524588193" duration="8025000" />
     </task>
     <task id="LOCAL-00001" summary="dev">
       <option name="closed" value="true" />
@@ -126,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748524924290</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dev">
+      <option name="closed" value="true" />
+      <created>1748553776559</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748553776559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
